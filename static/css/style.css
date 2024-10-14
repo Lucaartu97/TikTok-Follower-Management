@@ -1,0 +1,243 @@
+/* static/css/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.tutorial-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.upload-section {
+    display: none;
+    text-align: center;
+}
+
+.output-section {
+    margin-top: 20px;
+}
+
+.aligned-output {
+    text-align: left;
+    list-style-type: none;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.scrollable-output {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 20px 0;
+}
+
+.restart-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/* Tema scuro */
+body.dark-mode {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+/* Stile per il testo degli input e delle etichette */
+label, input[type="file"], button {
+    color: #000; /* Colore del testo in modalità chiara */
+    transition: color 0.3s; /* Transizione per il colore */
+}
+
+body.dark-mode label, 
+body.dark-mode input[type="file"], 
+body.dark-mode button {
+    color: #fff; /* Colore del testo in modalità scura */
+}
+
+/* Aggiungi questa regola per garantire che anche i testi siano visibili */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode ul,
+body.dark-mode li {
+    color: #fff; /* Colore del testo per h1, h2, ul e li in modalità scura */
+}
+
+/* Stile per il contenuto dell'output */
+.output-container {
+    max-height: 300px;
+    overflow-y: auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+body.dark-mode .output-container {
+    background: #444; /* Sfondo scuro per il contenuto dell'output */
+    color: #fff; /* Colore del testo in modalità scura */
+}
+
+body.dark-mode .output-container li {
+    background: #555; /* Sfondo per le righe dell'output */
+    color: #fff; /* Colore del testo per le righe dell'output */
+}
+
+/* Stile per il form */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+    color: #000;
+}
+
+
+/* Stile per i bottoni */
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Stile per il pulsante di cambio tema */
+.toggle-theme {
+    background-color: #007bff;
+}
+
+/* Hover per il pulsante di cambio tema */
+.toggle-theme:hover {
+    background-color: #0056b3;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Stile per la lista di output */
+.output-container {
+    max-height: 300px;
+    overflow-y: auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Centratura e gestione spazi */
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Nascondere elementi */
+.hidden {
+    display: none;
+}
+
+/* Stile del contenitore principale */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Stile per gli input */
+input[type="file"] {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Stile per l'icona del tema */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333; /* Colore icona in modalità chiara */
+    transition: color 0.3s;
+}
+
+body.dark-mode .theme-toggle {
+    color: #fff; /* Colore icona in modalità scura */
+}

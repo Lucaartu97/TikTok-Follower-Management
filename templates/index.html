@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Controllo Follower TikTok</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    
+<body>
+    <div class="container">
+        <h1 class="title">Gestione Follower TikTok</h1>
+
+        <!-- Sezione Tutorial -->
+        <div id="tutorial" class="tutorial-section">
+            <h2>Benvenuto nel Gestore di Follower TikTok!</h2>
+            <p>Questa applicazione ti permette di caricare i tuoi file di follower e seguiti, e di pulire i dati per scoprire chi non ti segue più.</p>
+            <p>Segui i passaggi seguenti:</p>
+            <ul>
+                <li>Carica il file dei follower e dei seguiti in formato TXT.</li>
+                <li>Clicca su "Pulisci" per rimuovere le date e i dati non necessari.</li>
+                <li>Controlla chi non ti segue più.</li>
+            </ul>
+            <button id="startButton" class="btn">Avvia</button>
+        </div>
+
+        <!-- Sezione Upload -->
+        <div id="uploadSection" class="upload-section" style="display: none;">
+            <form method="POST" enctype="multipart/form-data">
+                <label for="followers">Carica il file dei follower:</label>
+                <input type="file" name="followers" required><br>
+                
+                <label for="following">Carica il file dei seguiti:</label>
+                <input type="file" name="following" required><br>
+                
+                <button type="submit" name="pulisci" class="btn">Pulisci</button>
+            </form>
+        </div>
+
+        <!-- Sezione Output -->
+        {% if pulito %}
+        <div class="output-section">
+            <h3>File puliti con successo!</h3>
+            <ul>
+                <li><a href="{{ url_for('static', filename='follower_puliti.txt') }}" download><img src="path/to/download-icon.png" alt="Download follower"></a></li>
+                <li><a href="{{ url_for('static', filename='following_puliti.txt') }}" download><img src="path/to/download-icon.png" alt="Download following"></a></li>
+            </ul>
+            <form method="POST">
+                <button type="submit" name="check" class="btn">Controlla</button>
+            </form>
+        </div>
+        {% endif %}
+
+        <!-- Sezione Output non ricambiati -->
+        {% if non_ricambiati %}
+        <div class="output-section">
+            <h3>Persone che non ti seguono più:</h3>
+            <div class="scrollable-output">
+                <ul class="aligned-output">
+                    {% for user in non_ricambiati %}
+                    <li>{{ user }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Trasforma "Avvia" in un pulsante di Download -->
+            <button id="downloadButton" class="btn" onclick="downloadOutput()">Scarica la lista</button>
+        </div>
+
+        <!-- Bottone Ricomincia -->
+        <div class="restart-section">
+            <button onclick="window.location.href='/'" class="btn">Ricomincia</button>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
