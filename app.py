@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, send_file
 import os
 import re
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 # Funzione per leggere file txt e restituire una lista di nomi utente
 def leggi_file_txt(file_path):
